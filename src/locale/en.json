@@ -13,5 +13,9 @@
   "usernames": "Username",
   "dn": "Full DN",
   "password": "Password",
-  "signin": "Sign in"
+  "signin": "Sign in",
+  "change_password": "Change password",
+  "change_password_description": "Enter your new password",
+  "cancel": "Cancel",
+  "save": "Save"
 }
