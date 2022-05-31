@@ -1,4 +1,12 @@
 {
   "_dir": "ltr",
-  "welcome": "Welcome to Ldap Dashboard"
+  "welcome": "Welcome to Ldap Dashboard",
+  "try_again": "Try again",
+  "close": "Close",
+  "internet_error": "Cannot access to the server. Please try again.",
+  "understood": "I understood",
+  "403": "You don't have permission to access this",
+  "ok": "OK",
+  "unknown_error": "An unknown error occurred. Please try again.",
+  "error_code": "Error code"
 }
