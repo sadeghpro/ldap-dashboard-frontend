@@ -17,6 +17,10 @@ export default function Login() {
         setDn(`cn=${e.target.value},${process.env.REACT_APP_BASEDN}`);
     }
 
+    const handleChangeDN = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setDn(e.target.value);
+    }
+
     const handleClick = () => {
         axios.request<IResponse<any>>({
             url: '/auth',
@@ -42,7 +46,7 @@ export default function Login() {
             <CardContent className="flex flex-col space-y-6 p-4">
                 <Typography className='text-center'>{t('app_name')}</Typography>
                 <TextField size="small" label={t('username')} fullWidth value={username} onChange={handleChangeUsername}/>
-                <TextField size="small" label={t('DN')} fullWidth value={dn}/>
+                <TextField size="small" label={t('DN')} fullWidth value={dn} onChange={handleChangeDN}/>
                 <TextField size="small" label={t('password')} fullWidth inputRef={txtPassword} type="password"/>
                 <Button variant="contained" onClick={handleClick}>{t('signin')}</Button>
             </CardContent>
