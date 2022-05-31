@@ -60,6 +60,7 @@ export default function Axios() {
     }
 
     axios.defaults.baseURL = process.env.REACT_APP_URL;
+    axios.defaults.withCredentials = true // Send session cookies automatically
 
     axios.interceptors.request.use(request => {
         if (request.loading) {
