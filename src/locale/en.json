@@ -1,5 +1,6 @@
 {
   "_dir": "ltr",
+  "app_name": "LDAP Dashboard",
   "welcome": "Welcome to Ldap Dashboard",
   "try_again": "Try again",
   "close": "Close",
@@ -8,5 +9,9 @@
   "403": "You don't have permission to access this",
   "ok": "OK",
   "unknown_error": "An unknown error occurred. Please try again.",
-  "error_code": "Error code"
+  "error_code": "Error code",
+  "usernames": "Username",
+  "dn": "Full DN",
+  "password": "Password",
+  "signin": "Sign in"
 }
