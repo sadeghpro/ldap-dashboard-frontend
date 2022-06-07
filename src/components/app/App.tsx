@@ -6,6 +6,7 @@ import { CssBaseline } from '@mui/material';
 import RTL from './RTL';
 import { useTranslation } from 'react-i18next';
 import Axios from '../../Axios';
+import Main from '../main/Main';
 
 
 export default function App() {
@@ -20,7 +21,9 @@ export default function App() {
                 <Axios />
                 <CssBaseline />
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Main />} >
+                        <Route path="/" element={<Home />} />
+                    </Route>
                     <Route path="login" element={<Login />} />
                 </Routes>
             </RTL>
