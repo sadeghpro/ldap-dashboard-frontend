@@ -7,6 +7,7 @@ import RTL from './RTL';
 import { useTranslation } from 'react-i18next';
 import Axios from '../../Axios';
 import Main from '../main/Main';
+import Profile from '../profile/Profile';
 
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
                 <Routes>
                     <Route path="/" element={<Main />} >
                         <Route path="/" element={<Home />} />
+                        <Route path="profile" element={<Profile />} />
                     </Route>
                     <Route path="login" element={<Login />} />
                 </Routes>

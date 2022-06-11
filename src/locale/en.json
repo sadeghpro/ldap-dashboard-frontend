@@ -10,12 +10,16 @@
   "ok": "OK",
   "unknown_error": "An unknown error occurred. Please try again.",
   "error_code": "Error code",
-  "usernames": "Username",
+  "username": "Username",
   "dn": "Full DN",
   "password": "Password",
   "signin": "Sign in",
   "change_password": "Change password",
   "change_password_description": "Enter your new password",
   "cancel": "Cancel",
-  "save": "Save"
+  "save": "Save",
+  "profile": "Profile",
+  "name": "Full Name",
+  "phone": "Phone",
+  "mail": "E-Mail"
 }

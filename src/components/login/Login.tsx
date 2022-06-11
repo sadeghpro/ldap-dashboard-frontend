@@ -34,6 +34,7 @@ export default function Login() {
             loading: true,
             data: {
                 DN: dn,
+                CN: username,
                 password: txtPassword.current!.value,
             }
         }).then(res => {
