@@ -7,4 +7,5 @@ export default interface IUser {
     dn: string;
     mobile: string;
     mail: string;
+    jpegPhoto: string;
 }

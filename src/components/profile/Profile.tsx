@@ -9,12 +9,14 @@ import IUser from '../../interfaces/IUser';
 
 export default function Profile() {
     const [showPass, setShowPass] = useState(false);
+    const [photo, setPhoto] = useState<File>();
     const [profile, setProfile] = useState<IUser>({} as IUser);
     const { t } = useTranslation()
     const txtPassword = useRef<HTMLInputElement>();
     const txtSN = useRef<HTMLInputElement>();
     const txtMail = useRef<HTMLInputElement>();
     const txtMobile = useRef<HTMLInputElement>();
+    const inputFile = useRef<HTMLInputElement>(null); 
 
     useEffect(() => {
         axios.request<IResponse<IUser>>({
@@ -67,6 +69,44 @@ export default function Profile() {
         })
     }
 
+    const handleSaveImage = () => {
+        let reader = new FileReader();
+        reader.readAsDataURL(photo!);
+
+        reader.onload = (e) => {
+            const image = (e.target!.result as string).replace('data:image/jpeg;base64,', '');
+            axios.request<IResponse<boolean>>({
+                url: '/profile/photo',
+                method: 'POST',
+                loading: true,
+                data: {
+                    photo: image
+                }
+            }).then(res => {
+                if (res.data.status) {
+                    setProfile({...profile, jpegPhoto: image})
+                }
+            }).catch(err => {
+    
+            })
+        }
+
+    }
+
+    const handleChoosePhoto = () => {
+        inputFile.current!.click();
+    }
+
+    const handleSelectFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files![0].size > 20480000) {
+            // TODO show snackbar
+        } else if (!["image/png", "image/jpeg", "image/webp"].includes(event.target.files![0].type)) {
+            // TODO show snackbar
+        } else {
+            setPhoto(event.target.files![0])
+        }
+    }
+
     return (
         <>
             <Grid container spacing={2} className='p-3'>
@@ -84,7 +124,7 @@ export default function Profile() {
                                     </>
                                     :
                                     <>
-                                    {/* TODO add skelton */}
+                                        {/* TODO add skelton */}
                                     </>
                             }
                         </CardContent>
@@ -119,6 +159,19 @@ export default function Profile() {
                         </CardContent>
                         <CardActions>
                             <Button variant='contained' onClick={handleSavePassword}>{t('save')}</Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
+                <Grid item xs={12}>
+                    <Card>
+                        <CardContent>
+                            <Typography className='mb-5 text-lg font-bold'>{t('change_photo')}</Typography>
+                            <img src={`data:image/jpeg;base64,${profile.jpegPhoto}`} alt={t('profile_photo')} width={100}/>
+                            <input type='file' onChange={handleSelectFile} id='file' ref={inputFile} style={{display: 'none'}}/>
+                            <Button onClick={handleChoosePhoto}>{t('choose_photo')}</Button>
+                        </CardContent>
+                        <CardActions>
+                            <Button variant='contained' onClick={handleSaveImage}>{t('save')}</Button>
                         </CardActions>
                     </Card>
                 </Grid>

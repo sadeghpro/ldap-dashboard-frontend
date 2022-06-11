@@ -21,5 +21,8 @@
   "profile": "Profile",
   "name": "Full Name",
   "phone": "Phone",
-  "mail": "E-Mail"
+  "mail": "E-Mail",
+  "profile_photo": "Profile Photo",
+  "choose_photo": "Choose a photo",
+  "change_photo": "Change profile photo"
 }
